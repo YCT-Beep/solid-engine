@@ -25,3 +25,9 @@ export interface TeamMember {
   role: string;
   image: string;
 }
+
+export interface TypeUser {
+  email: string;
+  password: string;
+  name: string;
+}
