@@ -1,14 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, GraduationCap } from "lucide-react";
+import ProfileIcon from "./ProfileIcon";
+import { userType } from "../types";
 
 export function Navbar() {
+  const storedUser = sessionStorage.getItem("loggedInUser");
+  const userData: userType = storedUser ? JSON.parse(storedUser) : null;
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("loggedInUser");
+    window.location.href = "/";
+  };
 
   return (
     <nav className="bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <GraduationCap className="h-8 w-8 text-indigo-600" />
@@ -16,24 +25,47 @@ export function Navbar() {
                 EduPro
               </span>
             </Link>
+            <div className="flex items-center space-x-2 ml-12">
+              <Link
+                to="/courses"
+                className="text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-100"
+              >
+                Courses
+              </Link>
+              <Link
+                to="/about"
+                className="text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-100"
+              >
+                About
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-100"
+              >
+                Contact
+              </Link>
+            </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/courses" className="text-gray-700 hover:text-indigo-600">
-              Courses
-            </Link>
-            <Link to="/about" className="text-gray-700 hover:text-indigo-600">
-              About
-            </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-indigo-600">
-              Contact
-            </Link>
-            <Link
-              to="/login"
-              className="text-white bg-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-700"
-            >
-              Login
-            </Link>
+          <div className="hidden md:flex items-center space-x-4">
+            {storedUser ? (
+              <ProfileIcon user={userData} onLogout={handleLogout} />
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-gray-700 px-4 py-2 border-solid border-indigo-600 border-[1px] rounded-md hover:bg-indigo-300"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="text-white bg-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-800"
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </div>
 
           <div className="md:hidden flex items-center">

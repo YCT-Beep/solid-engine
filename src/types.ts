@@ -4,7 +4,7 @@ export interface Course {
   description: string;
   instructor: string;
   duration: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  level: "Beginner" | "Intermediate" | "Advanced";
   topic: string;
   image: string;
   progress?: number;
@@ -26,7 +26,13 @@ export interface TeamMember {
   image: string;
 }
 
-export interface TypeUser {
+export interface userType {
+  email: string;
+  password: string;
+  name: string;
+  avatarImage: string;
+}
+export interface formType {
   email: string;
   password: string;
   name: string;

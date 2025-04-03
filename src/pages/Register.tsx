@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { TypeUser } from "../types";
+import { formType } from "../types";
 import { Link } from "react-router-dom";
 import { Mail, Lock, User } from "lucide-react";
 
 export function Register() {
-  const [formData, setFormData] = useState<TypeUser>({
+  const [formData, setFormData] = useState<formType>({
     email: "",
     password: "",
     name: "",
@@ -25,7 +25,12 @@ export function Register() {
       setError("Email format is invalid.");
       return;
     }
-    sessionStorage.setItem(formData.email, JSON.stringify(formData));
+
+    const randomIndex = Math.floor(Math.random() * 4) + 1;
+    const avatarImage = `assets/avatars/${randomIndex}.jpeg`;
+
+    const userData = { ...formData, avatarImage };
+    sessionStorage.setItem(formData.email, JSON.stringify(userData));
     setError("");
     window.location.href = "/login";
   };

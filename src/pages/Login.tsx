@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Mail, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { TypeUser } from "../types";
+import { userType } from "../types";
 
 export function Login() {
   const [email, setEmail] = useState<string>("");
@@ -10,18 +10,34 @@ export function Login() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     const userData = sessionStorage.getItem(email);
     if (!userData) {
       setError("User  not found.");
       return;
     }
-    const user: TypeUser = JSON.parse(userData);
-    if (user.password !== password) {
-      setError("Invalid password.");
-      return;
+    try {
+      const user: userType = JSON.parse(userData);
+
+      if (user.password !== password) {
+        setError("Invalid password.");
+        return;
+      }
+
+      sessionStorage.setItem(
+        "loggedInUser",
+        JSON.stringify({
+          email: user.email,
+          name: user.name,
+          avatarImage: user.avatarImage,
+        })
+      );
+
+      window.location.href = "/";
+    } catch (e) {
+      setError("Error parsing user data.");
+      console.error("Error parsing user data:", e);
     }
-    sessionStorage.setItem("loggedInUser ", email);
-    window.location.href = "/";
   };
 
   return (
