@@ -1,5 +1,5 @@
-import { Course } from '../types';
-import { Clock, BarChart } from 'lucide-react';
+import { Course } from "../types";
+import { Clock, BarChart } from "lucide-react";
 
 interface CourseCardProps {
   course: Course;
@@ -26,7 +26,7 @@ export function CourseCard({ course }: CourseCardProps) {
             {course.level}
           </div>
         </div>
-        {course.progress !== undefined && (
+        {/* {course.progress !== undefined && (
           <div className="mt-4">
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div
@@ -34,9 +34,11 @@ export function CourseCard({ course }: CourseCardProps) {
                 style={{ width: `${course.progress}%` }}
               />
             </div>
-            <p className="mt-1 text-xs text-gray-500 text-right">{course.progress}% Complete</p>
+            <p className="mt-1 text-xs text-gray-500 text-right">
+              {course.progress}% Complete
+            </p>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
