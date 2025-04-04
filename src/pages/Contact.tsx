@@ -1,39 +1,43 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, HelpCircle } from 'lucide-react';
+import { useState } from "react";
+import { Mail, Phone, MapPin, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: 'How do I start a course?',
-    answer: 'Simply browse our course catalog, select a course, and click "Enroll". Once enrolled, you can begin learning immediately.'
+    question: "How do I start a course?",
+    answer:
+      'Simply browse our course catalog, select a course, and click "Enroll". Once enrolled, you can begin learning immediately.',
   },
   {
-    question: 'What payment methods do you accept?',
-    answer: 'We accept all major credit cards, PayPal, and bank transfers. Payment plans are available for select courses.'
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept all major credit cards, PayPal, and bank transfers. Payment plans are available for select courses.",
   },
   {
-    question: 'Can I get a refund?',
-    answer: 'Yes, we offer a 30-day money-back guarantee if you\'re not satisfied with your course.'
-  }
+    question: "Can I get a refund?",
+    answer:
+      "Yes, we offer a 30-day money-back guarantee if you're not satisfied with your course.",
+  },
 ];
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -77,7 +81,9 @@ export function Contact() {
               <div className="space-y-6">
                 {faqs.map((faq, index) => (
                   <div key={index}>
-                    <h3 className="text-lg font-medium text-gray-900">{faq.question}</h3>
+                    <h3 className="text-lg font-medium text-gray-900">
+                      {faq.question}
+                    </h3>
                     <p className="mt-2 text-gray-600">{faq.answer}</p>
                   </div>
                 ))}
@@ -90,7 +96,10 @@ export function Contact() {
             <h2 className="text-xl font-semibold mb-6">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Name
                 </label>
                 <input
@@ -99,13 +108,16 @@ export function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-[1px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Email
                 </label>
                 <input
@@ -114,13 +126,16 @@ export function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-[1px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Subject
                 </label>
                 <input
@@ -129,13 +144,16 @@ export function Contact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-[1px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Message
                 </label>
                 <textarea
@@ -144,7 +162,7 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-[1px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   required
                 />
               </div>

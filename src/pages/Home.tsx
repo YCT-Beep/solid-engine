@@ -1,8 +1,9 @@
 import { ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CourseCard } from "../components/CourseCard";
+import { Course } from "../types";
 
-const trendingCourses = [
+const trendingCourses: Course[] = [
   {
     id: "1",
     title: "Advanced Web Development",
@@ -12,7 +13,6 @@ const trendingCourses = [
     level: "Advanced",
     topic: "Web Development",
     image: "assets/course_images/1.jpg",
-    progress: 75,
   },
   {
     id: "2",
@@ -23,7 +23,6 @@ const trendingCourses = [
     level: "Beginner",
     topic: "Data Science",
     image: "assets/course_images/2.jpg",
-    progress: 30,
   },
 ];
 
