@@ -12,7 +12,7 @@ const courses: Course[] = [
     duration: "8 weeks",
     level: "Advanced",
     topic: "Development",
-    image: "assets/course_images/1.jpg",
+    image: "course_images/1.jpg",
   },
   {
     id: "2",
@@ -22,7 +22,7 @@ const courses: Course[] = [
     duration: "10 weeks",
     level: "Beginner",
     topic: "Data Science",
-    image: "assets/course_images/2.jpg",
+    image: "course_images/2.jpg",
   },
   {
     id: "3",
@@ -32,7 +32,7 @@ const courses: Course[] = [
     duration: "6 weeks",
     level: "Intermediate",
     topic: "Design",
-    image: "assets/course_images/3.jpg",
+    image: "course_images/3.jpg",
   },
   {
     id: "4",
@@ -42,7 +42,7 @@ const courses: Course[] = [
     duration: "4 weeks",
     level: "Beginner",
     topic: "Business",
-    image: "assets/course_images/4.jpg",
+    image: "course_images/4.jpg",
   },
   {
     id: "5",
@@ -52,7 +52,7 @@ const courses: Course[] = [
     duration: "12 weeks",
     level: "Advanced",
     topic: "Data Science",
-    image: "assets/course_images/5.jpg",
+    image: "course_images/5.jpg",
   },
   {
     id: "6",
@@ -62,7 +62,7 @@ const courses: Course[] = [
     duration: "8 weeks",
     level: "Intermediate",
     topic: "Development",
-    image: "assets/course_images/6.jpg",
+    image: "course_images/6.jpg",
   },
   {
     id: "7",
@@ -72,7 +72,7 @@ const courses: Course[] = [
     duration: "10 weeks",
     level: "Beginner",
     topic: "Development",
-    image: "assets/course_images/7.jpg",
+    image: "course_images/7.jpg",
   },
   {
     id: "8",
@@ -82,7 +82,7 @@ const courses: Course[] = [
     duration: "6 weeks",
     level: "Intermediate",
     topic: "Business",
-    image: "assets/course_images/8.jpg",
+    image: "course_images/8.jpg",
   },
   {
     id: "9",
@@ -92,7 +92,7 @@ const courses: Course[] = [
     duration: "4 weeks",
     level: "Intermediate",
     topic: "Design",
-    image: "assets/course_images/9.jpg",
+    image: "course_images/9.jpg",
   },
   {
     id: "10",
@@ -102,7 +102,7 @@ const courses: Course[] = [
     duration: "8 weeks",
     level: "Intermediate",
     topic: "Data Science",
-    image: "assets/course_images/10.jpg",
+    image: "course_images/10.jpg",
   },
   {
     id: "11",
@@ -112,7 +112,7 @@ const courses: Course[] = [
     duration: "12 weeks",
     level: "Advanced",
     topic: "Development",
-    image: "assets/course_images/11.jpg",
+    image: "course_images/11.jpg",
   },
   {
     id: "12",
@@ -122,7 +122,7 @@ const courses: Course[] = [
     duration: "6 weeks",
     level: "Beginner",
     topic: "Business",
-    image: "assets/course_images/12.jpg",
+    image: "course_images/12.jpg",
   },
 ];
 

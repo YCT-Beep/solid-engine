@@ -10,25 +10,25 @@ const team = [
   {
     name: "Dr. Sarah Johnson",
     role: "CEO & Founder",
-    image: "assets/people/1.jpg",
+    image: "people/1.jpg",
     bio: "Former professor with 15+ years of experience in education technology.",
   },
   {
     name: "Michael Chen",
     role: "Head of Education",
-    image: "assets/people/2.jpg",
+    image: "people/2.jpg",
     bio: "Tech leader with a passion for creating innovative learning solutions.",
   },
   {
     name: "Emily Rodriguez",
     role: "Head of Content",
-    image: "assets/people/3.jpg",
+    image: "people/3.jpg",
     bio: "Curriculum expert specializing in interactive learning experiences.",
   },
   {
     name: "David Kim",
     role: "Head of Education",
-    image: "assets/people/4.jpg",
+    image: "people/4.jpg",
     bio: "Dedicated to ensuring every student reaches their full potential.",
   },
 ];

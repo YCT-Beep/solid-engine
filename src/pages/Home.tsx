@@ -12,7 +12,7 @@ const trendingCourses: Course[] = [
     duration: "8 weeks",
     level: "Advanced",
     topic: "Web Development",
-    image: "assets/course_images/1.jpg",
+    image: "course_images/1.jpg",
   },
   {
     id: "2",
@@ -22,7 +22,7 @@ const trendingCourses: Course[] = [
     duration: "10 weeks",
     level: "Beginner",
     topic: "Data Science",
-    image: "assets/course_images/2.jpg",
+    image: "course_images/2.jpg",
   },
 ];
 
@@ -32,7 +32,7 @@ const successStories = [
     name: "Emily Rodriguez",
     role: "Software Engineer",
     company: "Tech Corp",
-    image: "assets/people/1.jpg",
+    image: "people/1.jpg",
     quote: "The courses helped me transition into tech and land my dream job.",
   },
   {
@@ -40,7 +40,7 @@ const successStories = [
     name: "James Wilson",
     role: "Data Analyst",
     company: "Analytics Pro",
-    image: "assets/people/2.jpg",
+    image: "people/2.jpg",
     quote:
       "Thanks to the Data Science course, I was able to switch careers and increase my salary by 50%.",
   },
@@ -49,7 +49,7 @@ const successStories = [
     name: "Sarah Chen",
     role: "UX Designer",
     company: "Design Studio",
-    image: "assets/people/3.jpg",
+    image: "people/3.jpg",
     quote:
       "The UI/UX courses provided practical knowledge that I use every day in my design work.",
   },
