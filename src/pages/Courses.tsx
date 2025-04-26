@@ -82,6 +82,22 @@ export function Courses() {
   const [selectedLevel, setSelectedLevel] = useState("All Levels");
   const [selectedDuration, setSelectedDuration] = useState("All Durations");
 
+  const hasActiveFilters = () => {
+    return (
+      searchTerm !== "" ||
+      selectedTopic !== "All Topics" ||
+      selectedLevel !== "All Levels" ||
+      selectedDuration !== "All Durations"
+    );
+  };
+
+  const clearFilters = () => {
+    setSearchTerm("");
+    setSelectedTopic("All Topics");
+    setSelectedLevel("All Levels");
+    setSelectedDuration("All Durations");
+  };
+
   const filteredCourses = courses.filter((course) => {
     const matchesDuration = () => {
       if (selectedDuration === "All Durations") return true;
@@ -135,7 +151,7 @@ export function Courses() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap items-center gap-4">
                 <select
                   className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   value={selectedTopic}
@@ -171,6 +187,15 @@ export function Courses() {
                     </option>
                   ))}
                 </select>
+
+                {hasActiveFilters() && (
+                  <button
+                    onClick={clearFilters}
+                    className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
+                  >
+                    Clear Filters
+                  </button>
+                )}
               </div>
             </div>
           </div>
