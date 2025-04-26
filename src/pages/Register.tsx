@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { formType } from "../types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { Mail, Lock, User } from "lucide-react";
 
 export function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<formType>({
     email: "",
     password: "",
@@ -36,7 +38,7 @@ export function Register() {
     const userData = { ...formData, avatarImage };
     sessionStorage.setItem(formData.email, JSON.stringify(userData));
     setError("");
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   return (
