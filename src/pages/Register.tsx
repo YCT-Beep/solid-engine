@@ -31,7 +31,7 @@ export function Register() {
     }
 
     const randomIndex = Math.floor(Math.random() * 5) + 1;
-    const avatarImage = `assets/avatars/${randomIndex}.png`;
+    const avatarImage = `avatars/${randomIndex}.png`;
 
     const userData = { ...formData, avatarImage };
     sessionStorage.setItem(formData.email, JSON.stringify(userData));
