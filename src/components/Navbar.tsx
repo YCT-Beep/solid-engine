@@ -119,45 +119,25 @@ export function Navbar() {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            <nav className="px-4 pt-4 pb-6 space-y-2">
-              <Link
-                to="/courses"
-                className={`block px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
-                  ${
-                    isActive("/courses")
-                      ? "text-indigo-600 bg-indigo-50"
-                      : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
-                  }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Courses
-              </Link>
-              <Link
-                to="/about"
-                className={`block px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
-                  ${
-                    isActive("/about")
-                      ? "text-indigo-600 bg-indigo-50"
-                      : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
-                  }`}
-                onClick={() => setIsOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                to="/contact"
-                className={`block px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
-                  ${
-                    isActive("/contact")
-                      ? "text-indigo-600 bg-indigo-50"
-                      : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
-                  }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </Link>
-              {!storedUser && (
-                <div className="mt-6 space-y-2">
+            <nav className="px-4 pt-4 pb-6">
+              {storedUser ? (
+                <div className="mb-6 pb-6 border-b border-gray-200">
+                  <div className="flex items-center space-x-4">
+                    <img
+                      src={userData.avatarImage}
+                      alt="Profile"
+                      className="h-16 w-16 rounded-full"
+                    />
+                    <div>
+                      <h3 className="text-lg font-medium text-gray-900">
+                        {userData.name}
+                      </h3>
+                      <p className="text-sm text-gray-500">{userData.email}</p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="mb-6 pb-6 border-b border-gray-200 space-y-2">
                   <Link
                     to="/login"
                     className="block w-full px-4 py-2.5 text-center text-gray-700 border border-indigo-600 rounded-md hover:bg-indigo-50"
@@ -173,6 +153,57 @@ export function Navbar() {
                     Register
                   </Link>
                 </div>
+              )}
+
+              <div className="space-y-2">
+                <Link
+                  to="/courses"
+                  className={`block px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
+                    ${
+                      isActive("/courses")
+                        ? "text-indigo-600 bg-indigo-50"
+                        : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+                    }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Courses
+                </Link>
+                <Link
+                  to="/about"
+                  className={`block px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
+                    ${
+                      isActive("/about")
+                        ? "text-indigo-600 bg-indigo-50"
+                        : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+                    }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  to="/contact"
+                  className={`block px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
+                    ${
+                      isActive("/contact")
+                        ? "text-indigo-600 bg-indigo-50"
+                        : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+                    }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact
+                </Link>
+              </div>
+
+              {storedUser && (
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false);
+                  }}
+                  className="mt-6 w-full px-4 py-2.5 text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition-colors duration-200"
+                >
+                  Logout
+                </button>
               )}
             </nav>
           </div>
