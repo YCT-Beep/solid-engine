@@ -25,6 +25,10 @@ export function Register() {
       setError("Email format is invalid.");
       return;
     }
+    if (formData.password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
 
     const randomIndex = Math.floor(Math.random() * 5) + 1;
     const avatarImage = `assets/avatars/${randomIndex}.png`;
