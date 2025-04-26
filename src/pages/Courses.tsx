@@ -11,7 +11,7 @@ const courses: Course[] = [
     instructor: "Sarah Johnson",
     duration: "8 weeks",
     level: "Advanced",
-    topic: "Web Development",
+    topic: "Development",
     image: "assets/course_images/1.jpg",
   },
   {
@@ -61,14 +61,74 @@ const courses: Course[] = [
     instructor: "David Kim",
     duration: "8 weeks",
     level: "Intermediate",
-    topic: "Web Development",
+    topic: "Development",
     image: "assets/course_images/6.jpg",
+  },
+  {
+    id: "7",
+    title: "Cybersecurity Fundamentals",
+    description: "Learn essential security practices and threat prevention",
+    instructor: "Robert Smith",
+    duration: "10 weeks",
+    level: "Beginner",
+    topic: "Development",
+    image: "assets/course_images/7.jpg",
+  },
+  {
+    id: "8",
+    title: "Business Analytics",
+    description: "Master data-driven decision making for business growth",
+    instructor: "Lisa Anderson",
+    duration: "6 weeks",
+    level: "Intermediate",
+    topic: "Business",
+    image: "assets/course_images/8.jpg",
+  },
+  {
+    id: "9",
+    title: "Responsive Design Mastery",
+    description: "Create modern, adaptive websites for all devices",
+    instructor: "Mark Wilson",
+    duration: "4 weeks",
+    level: "Intermediate",
+    topic: "Design",
+    image: "assets/course_images/9.jpg",
+  },
+  {
+    id: "10",
+    title: "Python for Data Analysis",
+    description: "Harness Python's power for complex data analysis",
+    instructor: "Jennifer Lee",
+    duration: "8 weeks",
+    level: "Intermediate",
+    topic: "Data Science",
+    image: "assets/course_images/10.jpg",
+  },
+  {
+    id: "11",
+    title: "Cloud Computing Essentials",
+    description: "Master cloud platforms and deployment strategies",
+    instructor: "Thomas Brown",
+    duration: "12 weeks",
+    level: "Advanced",
+    topic: "Development",
+    image: "assets/course_images/11.jpg",
+  },
+  {
+    id: "12",
+    title: "Digital Brand Strategy",
+    description: "Build and maintain a powerful online brand presence",
+    instructor: "Sarah Martinez",
+    duration: "6 weeks",
+    level: "Beginner",
+    topic: "Business",
+    image: "assets/course_images/12.jpg",
   },
 ];
 
 const topics = [
   "All Topics",
-  "Web Development",
+  "Development",
   "Data Science",
   "Design",
   "Business",
@@ -102,7 +162,7 @@ export function Courses() {
     const matchesDuration = () => {
       if (selectedDuration === "All Durations") return true;
 
-      const courseDurationWeeks = parseInt(course.duration.split(' ')[0]);
+      const courseDurationWeeks = parseInt(course.duration.split(" ")[0]);
 
       switch (selectedDuration) {
         case "0-4 weeks":
