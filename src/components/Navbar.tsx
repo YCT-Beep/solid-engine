@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, GraduationCap } from "lucide-react";
 import ProfileIcon from "./ProfileIcon";
 import { userType } from "../types";
@@ -14,53 +14,74 @@ export function Navbar() {
     window.location.href = "/";
   };
 
+  const location = useLocation();
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   return (
     <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div className="flex justify-between h-20 items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <GraduationCap className="h-8 w-8 text-indigo-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">
+              <GraduationCap className="h-10 w-10 text-indigo-600" />
+              <span className="ml-3 text-2xl font-bold text-gray-900">
                 EduPro
               </span>
             </Link>
-            <div className="flex items-center space-x-2 ml-12">
+            <div className="flex items-center space-x-4 ml-16">
               <Link
                 to="/courses"
-                className="text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-100"
+                className={`px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
+                  ${
+                    isActive("/courses")
+                      ? "text-indigo-600 bg-indigo-50"
+                      : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+                  }`}
               >
                 Courses
               </Link>
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-100"
+                className={`px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
+                  ${
+                    isActive("/about")
+                      ? "text-indigo-600 bg-indigo-50"
+                      : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+                  }`}
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-100"
+                className={`px-4 py-2.5 rounded-md text-base font-medium transition-colors duration-200
+                  ${
+                    isActive("/contact")
+                      ? "text-indigo-600 bg-indigo-50"
+                      : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+                  }`}
               >
                 Contact
               </Link>
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             {storedUser ? (
-              <ProfileIcon user={userData} onLogout={handleLogout} />
+              <ProfileIcon user={userData} size={45} onLogout={handleLogout} />
             ) : (
               <>
                 <Link
                   to="/login"
-                  className="text-gray-700 px-4 py-2 border-solid border-indigo-600 border-[1px] rounded-md hover:bg-indigo-300"
+                  className="text-gray-700 px-5 py-2.5 text-base border-solid border-indigo-600 border-[1px] rounded-md hover:bg-indigo-300"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="text-white bg-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-800"
+                  className="text-white bg-indigo-600 px-5 py-2.5 text-base rounded-md hover:bg-indigo-800"
                 >
                   Register
                 </Link>
@@ -74,9 +95,9 @@ export function Navbar() {
               className="text-gray-700 hover:text-indigo-600"
             >
               {isOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-8 w-8" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-8 w-8" />
               )}
             </button>
           </div>
@@ -85,31 +106,31 @@ export function Navbar() {
 
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-4 pt-3 pb-4 space-y-2 sm:px-4">
             <Link
               to="/courses"
-              className="block px-3 py-2 text-gray-700 hover:text-indigo-600"
+              className="block px-4 py-2.5 text-base text-gray-700 hover:text-indigo-600"
               onClick={() => setIsOpen(false)}
             >
               Courses
             </Link>
             <Link
               to="/about"
-              className="block px-3 py-2 text-gray-700 hover:text-indigo-600"
+              className="block px-4 py-2.5 text-base text-gray-700 hover:text-indigo-600"
               onClick={() => setIsOpen(false)}
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="block px-3 py-2 text-gray-700 hover:text-indigo-600"
+              className="block px-4 py-2.5 text-base text-gray-700 hover:text-indigo-600"
               onClick={() => setIsOpen(false)}
             >
               Contact
             </Link>
             <Link
               to="/login"
-              className="block px-3 py-2 text-white bg-indigo-600 rounded-md"
+              className="block px-4 py-2.5 text-base text-white bg-indigo-600 rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Login
